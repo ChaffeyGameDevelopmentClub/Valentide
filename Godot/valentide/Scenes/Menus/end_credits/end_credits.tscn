@@ -10,6 +10,7 @@ script = ExtResource("2_81odd")
 main_menu_scene = "res://Scenes/scenes/menus/main_menu/main_menu_with_animations.tscn"
 
 [node name="BackgroundMusicPlayer" parent="." index="0" instance=ExtResource("3_ff4kd")]
+bus = &"Master"
 
 [node name="BackgroundColor" type="ColorRect" parent="." index="1"]
 layout_mode = 1
@@ -32,6 +33,84 @@ stretch_mode = 5
 
 [node name="ScrollContainer" parent="." index="3"]
 scroll_vertical = 0
+
+[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
+text = "[center][font_size=48]Collaborators[/font_size]
+
+[font_size=32]Role[/font_size]
+Luna - Programming and Project Lead 
+Person 2  
+[url=]Person w/ Link[/url]  
+
+
+[font_size=48]Sourced / Unaffiliated[/font_size]
+[font_size=32]Asset Type[/font_size]
+[font_size=24]Use Case[/font_size]
+Author: [url=]Name[/url]  
+Source: [url=]Domain : webpage.html[/url]  
+License: [url=]License[/url]
+
+[font_size=24]Godot Engine Logo[/font_size]
+Author: Andrea Calabró  
+Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+
+[font_size=48]Tools[/font_size]
+[font_size=24]Godot[/font_size]
+Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
+Source: [url=https://godotengine.org/]godotengine.org[/url]  
+License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+
+[font_size=24]Git[/font_size]
+Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
+Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
+License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+
+[font_size=24]Godot Menus Template[/font_size]
+Author: [url=https://github.com/Maaack/Godot-Menus-Template/graphs/contributors]Marek Belski[/url]  
+Source: [url=https://github.com/Maaack/Godot-Menus-Template]github: Godot-Menus-Template[/url]  
+License: [url=LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Quality Godot First Person[/font_size]
+Author: [url=https://git.colormatic.org/ColormaticStudios/quality-godot-first-person]Colormatic[/url]
+Source: [url=https://git.colormatic.org/ColormaticStudios/quality-godot-first-person]github[/url]
+License: [url=licensefpc.txt]MIT License[/url]
+
+[font_size=24]PAmbient[/font_size]
+Author: [url=https://github.com/gagepaxton]Gagepaxton[/url]
+Source: [url=https://github.com/gagepaxton/PAmbient]github[/url]
+License: [url=licensePAmbient.txt]MIT License[/url]
+
+[font_size=24]Inventory System[/font_size]
+Author: [url=https://github.com/expressobits]Expresso Bits[/url]
+Source: [url=https://github.com/expressobits/inventory-system]github[/url]
+License: MIT License
+
+[font_size=24]Godot Console[/font_size]
+Author: [url=https://github.com/jitspoe]Jitspoe[/url]
+Source: [url=https://github.com/jitspoe/godot-console]github[/url]
+License: [url=LicenseConsole.txt]MIT License[/url]
+
+[font_size=24]Godot Menus Template[/font_size]
+Author: [url=https://github.com/Maaack]Maaack[/url]
+Source: [url=https://github.com/Maaack/Godot-Menus-Template]github[/url]
+License: [url=LICENSEMaaacks.txt]MIT License[/url]
+
+[font_size=24]Godot Procedural Textures[/font_size]
+Author: [url=https://github.com/wakeofluna]Esther Dalhuisen[/url]
+Source: [url=https://github.com/wakeofluna/godot-procedural-textures]github[/url]
+License: [url=licenseProText.txt]MIT License[/url]
+
+[font_size=24]Godot Easy Saving[/font_size]
+Author: [url=https://github.com/IsItLucas]IsItLucas?[/url]
+Source: [url=https://github.com/IsItLucas/godot_easy_saving]github[/url]
+License: [url=licenseSave.txt]MIT License[/url]
+
+[font_size=24]Godot Health Hitbox Hurtbox[/font_size]
+Author: [url=https://github.com/cluttered-code]David Clutter[/url]
+Source: [url=https://github.com/cluttered-code/godot-health-hitbox-hurtbox]github[/url]
+License: [url=licenseHealth.txt]MIT License[/url]
+[/center]"
 
 [node name="CenterContainer" type="CenterContainer" parent="." index="4"]
 layout_mode = 0
