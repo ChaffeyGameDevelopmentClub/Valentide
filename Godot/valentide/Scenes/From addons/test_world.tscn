@@ -64,16 +64,6 @@ uv1_triplanar_sharpness = 0.000850145
 
 [node name="Character" parent="." instance=ExtResource("1_e18vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-controls = {
-"BACKWARD": "back",
-"CROUCH": "crouch",
-"FORWARD": "forward",
-"JUMP": "jump",
-"LEFT": "left",
-"PAUSE": "esc",
-"RIGHT": "right",
-"SPRINT": "sprint"
-}
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_20rw3")

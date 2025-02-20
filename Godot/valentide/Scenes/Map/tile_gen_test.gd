@@ -8,16 +8,19 @@ var roomOpening : Dictionary = {
 	corner = 2,
 	dEnd = 1,
 	}
+
+var rng = RandomNumberGenerator.new()
 #endregion
 
 #region Functions
 func GenMap():
-	pass
-
+	var my_random_number = rng.randi_range(0, 10)
+	print(my_random_number)
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GenMap()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
