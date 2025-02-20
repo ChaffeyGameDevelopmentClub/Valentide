@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8se8xhtoguc7"]
+
+[ext_resource type="Script" path="res://Scenes/Map/tile_gen_test.gd" id="1_31t7r"]
+
+[node name="TileGenTest" type="Node3D"]
+script = ExtResource("1_31t7r")
