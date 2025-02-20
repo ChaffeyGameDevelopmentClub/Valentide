@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://7atroqfo3r73"]
+[gd_scene load_steps=7 format=3 uid="uid://7atroqfo3r73"]
 
 [ext_resource type="MeshLibrary" uid="uid://vuc7s5gch6o0" path="res://Assets/mapTilesAssets/maptiles.tres" id="1_7147c"]
+[ext_resource type="Script" path="res://Scripts/Map/tile_gen_test.gd" id="1_i6etk"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="2_4ascu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ygnbn"]
@@ -16,7 +17,10 @@ sky = SubResource("Sky_b2xqm")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="MapTiles" type="Node3D"]
+[node name="MapTiles" type="Node3D" node_paths=PackedStringArray("gridmap", "visual")]
+script = ExtResource("1_i6etk")
+gridmap = NodePath("GridMap")
+visual = NodePath("")
 
 [node name="Character" parent="." instance=ExtResource("2_4ascu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.9356, 4.95035, 9.875)
@@ -25,12 +29,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.935
 environment = SubResource("Environment_vh1fs")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.77116, 0.551348, -0.318319, 0, 0.499998, 0.866027, 0.636641, 0.667845, -0.385579, 0, 17.2836, 0)
 shadow_enabled = true
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_7147c")
 cell_size = Vector3(6, 6, 6)
 data = {
-"cells": PackedInt32Array(3, 1, 655360, 2, 1, 655360, 2, 2, 655360, 3, 2, 655360, 1, 2, 655361, 0, 2, 655361, 2, 0, 3, 3, 0, 3)
+"cells": PackedInt32Array(3, 1, 655360, 2, 1, 655360, 2, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0)
 }
