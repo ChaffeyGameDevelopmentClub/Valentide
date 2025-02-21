@@ -1,16 +1,19 @@
-extends Node3D
-
+class_name tile_gen_test extends Node3D
 #region classes
-var room = load("res://Scripts/Map/Room.gd")
+var visScript = load("res://Scripts/MapVisual.gd")
+var vis = visScript.new()
 #endregion
 
 #region Export Nodes
 @export_group("Nodes")
 @export var gridmap : GridMap
 @export var visual : Control
+@export var room : Node
+#@export var room
 #endregion
 
 #region Room Vars
+var rng = RandomNumberGenerator.new()
 #How to define openings
 #
 #		3
@@ -30,12 +33,14 @@ var roomOpening : Dictionary = {
 	dEnd = [2]
 	}
 
-var rng = RandomNumberGenerator.new()
+#room gen
+var horizontalSplit : bool
+var verticalSplit : bool
 
 #endregion
 
 #region MapVisual
-
+#renders data to send to visual node
 
 
 #endregion
@@ -54,34 +59,34 @@ func rotateGrid(angle):
 	
 func GenMap():
 	var my_random_number = rng.randi_range(0, 10)
-	print(my_random_number)
-	gridmap.set_cell_item(Vector3(0,0,0),4,rotateGrid(0))
+	#print(my_random_number)
+	#gridmap.set_cell_item(Vector3(0,0,0),4,rotateGrid(0))
+	
 
-func test():
-	gridmap.set_cell_item(Vector3(0,0,0),3,0)
-	print("placed")
-	print(gridmap.get_used_cells_by_item(1))
-	#opening is (2,0,0)
-	#idea is to gen at (3,0,0) and use rand and if else to gen/determine where to place stuff.
-	var randItem = rng.randi_range(0,3)
-	#Rot not done yet
-	var randRot = rng.randi_range(0,3)
-	var x = 10
-	while x>0:
-		x -= 1
-		randItem = rng.randi_range(0,3)
-		print(randItem)
-		var pos = Vector3(x,0,0)
-		print(pos)
-		gridmap.set_cell_item(pos,randItem,0)
+#func test():
+	#gridmap.set_cell_item(Vector3(0,0,0),3,0)
+	#print("placed")
+	#print(gridmap.get_used_cells_by_item(1))
+	##opening is (2,0,0)
+	##idea is to gen at (3,0,0) and use rand and if else to gen/determine where to place stuff.
+	#var randItem = rng.randi_range(0,3)
+	##Rot not done yet
+	#var _randRot = rng.randi_range(0,3)
+	#var x = 10
+	#while x>0:
+		#x -= 1
+		#randItem = rng.randi_range(0,3)
+		#print(randItem)
+		#var pos = Vector3(x,0,0)
+		#print(pos)
+		#gridmap.set_cell_item(pos,randItem,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GenMap()
+	#GenMap()
+	if room.CheckdrawVisual():
+		visual.show()
+		room.split()
+	else:
+		print("off")
 	#test()
-	#room.draw()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
