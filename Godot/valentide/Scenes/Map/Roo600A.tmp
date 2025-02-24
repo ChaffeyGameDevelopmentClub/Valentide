@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxk03qe33h1ap"]
+
+[ext_resource type="Script" path="res://Scripts/Map/Room.gd" id="1_olne0"]
+[ext_resource type="PackedScene" uid="uid://f0s6qsx20jwy" path="res://Scenes/Map/mapvisual.tscn" id="2_y6mt7"]
+
+[node name="RoomGen" type="Node"]
+script = ExtResource("1_olne0")
+
+[node name="Map Visual" parent="." node_paths=PackedStringArray("room") instance=ExtResource("2_y6mt7")]
+room = NodePath("..")

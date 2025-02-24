@@ -34,6 +34,7 @@ folder_colors={
 "res://Scenes/Menus/": "yellow",
 "res://Scenes/Player/": "purple",
 "res://Scripts/": "red",
+"res://Scripts/Map/": "green",
 "res://addons/": "gray",
 "res://addons/fpc/": "purple",
 "res://addons/maaacks_menus_template/": "yellow"
