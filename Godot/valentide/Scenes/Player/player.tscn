@@ -1,5 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvmx1mbt7cv0a"]
+[gd_scene load_steps=7 format=3 uid="uid://cvmx1mbt7cv0a"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_mr0fw"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3hsk1"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/hurt_box_3d.gd" id="3_iiwha"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hit_box_3d/hit_box_3d.gd" id="4_x8k4m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83xuu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rr17u"]
 
 [node name="Character" instance=ExtResource("1_mr0fw")]
+
+[node name="Health" type="Node" parent="." index="8" node_paths=PackedStringArray("entity")]
+script = ExtResource("2_3hsk1")
+entity = NodePath("..")
+
+[node name="HurtBox3D" type="Area3D" parent="." index="9" node_paths=PackedStringArray("health")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("3_iiwha")
+health = NodePath("../Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D" index="0"]
+shape = SubResource("CapsuleShape3D_83xuu")
+
+[node name="HitBox3D" type="Area3D" parent="." index="10"]
+script = ExtResource("4_x8k4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D" index="0"]
+shape = SubResource("CapsuleShape3D_rr17u")
