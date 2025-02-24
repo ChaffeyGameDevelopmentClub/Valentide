@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://x2b0ps0ryyww"]
 
 [ext_resource type="PackedScene" uid="uid://dhpx8xme3jee7" path="res://Scenes/Menus/overlaid_menus/pause_menu_controller.tscn" id="1_w407h"]
-[ext_resource type="Script" path="res://Scenes/from game template/extras/scripts/level_list_loader.gd" id="2_egc56"]
-[ext_resource type="PackedScene" uid="uid://dbuv0htkikcv4" path="res://Scenes/from game template/scenes/loading_screen/level_loading_screen.tscn" id="3_jkppw"]
+[ext_resource type="Script" path="res://Scenes/From addons/from game template/extras/scripts/level_list_loader.gd" id="2_egc56"]
+[ext_resource type="PackedScene" uid="uid://dbuv0htkikcv4" path="res://Scenes/From addons/from game template/scenes/loading_screen/level_loading_screen.tscn" id="3_jkppw"]
 [ext_resource type="Script" path="res://addons/maaacks_menus_template/base/scenes/loading_screen/loading_screen.gd" id="4_f24o0"]
-[ext_resource type="Script" path="res://Scenes/from game template/scenes/game_scene/configurable_sub_viewport.gd" id="5_pnh4h"]
-[ext_resource type="Script" path="res://Scenes/from game template/scripts/level_list_state_manager.gd" id="6_2bn8s"]
-[ext_resource type="PackedScene" uid="uid://cmefjno2ddk7e" path="res://Scenes/from game template/scenes/overlaid_menus/game_won_menu.tscn" id="7_xk7xl"]
-[ext_resource type="PackedScene" uid="uid://bralse0lmn6t3" path="res://Scenes/from game template/scenes/overlaid_menus/level_lost_menu.tscn" id="8_jo3am"]
-[ext_resource type="PackedScene" uid="uid://cyjcj8mo8x5tk" path="res://Scenes/from game template/scenes/overlaid_menus/level_won_menu.tscn" id="9_m5t72"]
+[ext_resource type="Script" path="res://Scenes/From addons/from game template/scenes/game_scene/configurable_sub_viewport.gd" id="5_pnh4h"]
+[ext_resource type="Script" path="res://Scenes/From addons/from game template/scripts/level_list_state_manager.gd" id="6_2bn8s"]
+[ext_resource type="PackedScene" uid="uid://cmefjno2ddk7e" path="res://Scenes/From addons/from game template/scenes/overlaid_menus/game_won_menu.tscn" id="7_xk7xl"]
+[ext_resource type="PackedScene" uid="uid://bralse0lmn6t3" path="res://Scenes/From addons/from game template/scenes/overlaid_menus/level_lost_menu.tscn" id="8_jo3am"]
+[ext_resource type="PackedScene" uid="uid://cyjcj8mo8x5tk" path="res://Scenes/From addons/from game template/scenes/overlaid_menus/level_won_menu.tscn" id="9_m5t72"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3

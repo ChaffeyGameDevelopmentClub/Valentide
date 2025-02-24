@@ -9,14 +9,14 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rr17u"]
 
-[node name="Character" instance=ExtResource("1_mr0fw")]
+[node name="Player" instance=ExtResource("1_mr0fw")]
 
 [node name="Health" type="Node" parent="." index="8" node_paths=PackedStringArray("entity")]
 script = ExtResource("2_3hsk1")
 entity = NodePath("..")
 
 [node name="HurtBox3D" type="Area3D" parent="." index="9" node_paths=PackedStringArray("health")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
 script = ExtResource("3_iiwha")
 health = NodePath("../Health")
 
@@ -24,6 +24,7 @@ health = NodePath("../Health")
 shape = SubResource("CapsuleShape3D_83xuu")
 
 [node name="HitBox3D" type="Area3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("4_x8k4m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D" index="0"]
