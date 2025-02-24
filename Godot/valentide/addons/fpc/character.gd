@@ -49,6 +49,8 @@ extends CharacterBody3D
 @export var CROUCH_ANIMATION : AnimationPlayer
 ## A reference to the the player's collision shape for use in the character script.
 @export var COLLISION_MESH : CollisionShape3D
+## A reference to the pausemenu node for use in the pause menu
+@export var pausemenu : Control
 
 #endregion
 
@@ -477,6 +479,10 @@ func update_camera_fov():
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
 		# You may want another node to handle pausing, because this player may get paused too.
+		#add pause menu
+		if pausemenu:
+			print('showPause')
+			pausemenu.show()
 		match Input.mouse_mode:
 			Input.MOUSE_MODE_CAPTURED:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
