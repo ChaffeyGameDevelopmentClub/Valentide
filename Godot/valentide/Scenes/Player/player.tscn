@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvmx1mbt7cv0a"]
+[gd_scene load_steps=8 format=3 uid="uid://cvmx1mbt7cv0a"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_mr0fw"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3hsk1"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/hurt_box_3d.gd" id="3_iiwha"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hit_box_3d/hit_box_3d.gd" id="4_x8k4m"]
+[ext_resource type="PackedScene" uid="uid://cjavdlycy4omk" path="res://Scenes/Player/in_game_ui.tscn" id="5_8odno"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83xuu"]
 
@@ -29,3 +30,8 @@ script = ExtResource("4_x8k4m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D" index="0"]
 shape = SubResource("CapsuleShape3D_rr17u")
+
+[node name="inGameUi" parent="." index="11" node_paths=PackedStringArray("HealthNode", "HurtBox", "HitBox") instance=ExtResource("5_8odno")]
+HealthNode = NodePath("../Health")
+HurtBox = NodePath("../HurtBox3D")
+HitBox = NodePath("../HitBox3D")

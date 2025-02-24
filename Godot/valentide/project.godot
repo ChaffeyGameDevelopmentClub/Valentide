@@ -36,7 +36,8 @@ folder_colors={
 "res://Scripts/": "red",
 "res://addons/": "gray",
 "res://addons/fpc/": "purple",
-"res://addons/maaacks_menus_template/": "yellow"
+"res://addons/maaacks_menus_template/": "yellow",
+"res://scripts/": "red"
 }
 
 [input]
