@@ -17,6 +17,10 @@ var _initial_focus_control
 var _scene_tree : SceneTree 
 
 func close():
+#From player, Controls if mouse is visible or not
+	
+	
+	#From base
 	_scene_tree.paused = _initial_pause_state
 	Input.set_mouse_mode(_initial_mouse_mode)
 	if is_instance_valid(_initial_focus_control) and _initial_focus_control.is_inside_tree():
@@ -29,6 +33,7 @@ func _handle_cancel_input():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
+		print_debug("test")
 		_handle_cancel_input()
 		get_viewport().set_input_as_handled()
 

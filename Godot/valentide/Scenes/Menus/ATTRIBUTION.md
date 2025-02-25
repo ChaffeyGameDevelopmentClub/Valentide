@@ -3,9 +3,15 @@
 
 ### Role
 Luna - Programming and Project Lead 
-Person 2  
-[Person w/ Link]()  
-
+Tanvir - 3D Modeling and Ui
+Anna - Programming
+Iris - Programming
+Linus - 2D Art
+Miguel - Moral Support
+Daniel - Told us we couldn't do it.
+Lance - German Base
+Ekatherine - Super cool person!
+Blame this guy! - Benny
 
 ## Sourced / Unaffiliated
 ### Asset Type

@@ -7,4 +7,3 @@
 [node name="PauseMenu" instance=ExtResource("1_rtyyg")]
 script = ExtResource("2_3fiww")
 options_packed_scene = ExtResource("3_1c06f")
-main_menu_scene = "res://Scenes/scenes/menus/main_menu/main_menu_with_animations.tscn"

@@ -49,6 +49,10 @@ extends CharacterBody3D
 @export var CROUCH_ANIMATION : AnimationPlayer
 ## A reference to the the player's collision shape for use in the character script.
 @export var COLLISION_MESH : CollisionShape3D
+## A reference to the Sword
+@export var SWORD : Node3D
+## A reference to the Shield
+@export var SHIELD : Node3D
 
 #endregion
 
@@ -61,11 +65,13 @@ extends CharacterBody3D
 	LEFT = "left",
 	RIGHT = "right",
 	FORWARD = "forward",
-	BACKWARD = "back",
+	BACKWARD = "backward",
 	JUMP = "jump",
 	CROUCH = "crouch",
 	SPRINT = "sprint",
-	PAUSE = "esc"
+	PAUSE = "esc",
+	ATTACK = "attack",
+	BLOCK = "block"
 	}
 @export_subgroup("Controller Specific")
 ## This only affects how the camera is handled, the rest should be covered by adding controller inputs to the existing actions in the Input Map.
@@ -172,6 +178,7 @@ func _physics_process(delta): # Most things happen here.
 		velocity.y -= gravity * delta
 
 	handle_jumping()
+	handle_attack()
 
 	var input_dir = Vector2.ZERO
 
@@ -238,6 +245,10 @@ func handle_movement(delta, input_dir):
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 
+func handle_attack():
+	if Input.is_action_just_pressed(controls.ATTACK):
+		print(SWORD.get_children())
+		SWORD.swingAni()
 
 func handle_head_rotation():
 	if invert_camera_x_axis:
@@ -476,13 +487,17 @@ func update_camera_fov():
 
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
+		print_debug("mouse cap")
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		print_debug("player pause")
 		# You may want another node to handle pausing, because this player may get paused too.
-		match Input.mouse_mode:
-			Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				#get_tree().paused = false
-			Input.MOUSE_MODE_VISIBLE:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				#get_tree().paused = false
-
+		# Moved to PauseMenuController
+		#match Input.mouse_mode:
+			#Input.MOUSE_MODE_CAPTURED:
+				#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				##get_tree().paused = false
+			#Input.MOUSE_MODE_VISIBLE:
+				#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				##get_tree().paused = false
+				
 #endregion

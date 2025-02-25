@@ -1,0 +1,66 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvmx1mbt7cv0a"]
+
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_mr0fw"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3hsk1"]
+[ext_resource type="Shader" path="res://Scenes/Player/water.gdshader" id="2_jg4ag"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/hurt_box_3d.gd" id="3_iiwha"]
+[ext_resource type="Shader" uid="uid://bndjuv2l8q5vw" path="res://Scenes/Player/player.tres" id="3_ne8rm"]
+[ext_resource type="PackedScene" uid="uid://cjavdlycy4omk" path="res://Scenes/Player/in_game_ui.tscn" id="5_8odno"]
+[ext_resource type="PackedScene" uid="uid://ck4u3k5h5u3xo" path="res://Scenes/Player/sword_fish.tscn" id="7_gtx0s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3hu6"]
+render_priority = 0
+shader = ExtResource("2_jg4ag")
+shader_parameter/height_scale = 0.5
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tayvf"]
+material = SubResource("ShaderMaterial_j3hu6")
+size = Vector2(4, 3)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f63l3"]
+render_priority = 0
+shader = ExtResource("3_ne8rm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q1xck"]
+material = SubResource("ShaderMaterial_f63l3")
+size = Vector2(4, 4)
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83xuu"]
+
+[node name="Player" node_paths=PackedStringArray("SWORD") instance=ExtResource("1_mr0fw")]
+SWORD = NodePath("Head/SwordFish")
+
+[node name="WaterShader" type="Node3D" parent="Head" index="3"]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/WaterShader" index="0"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -6.20682e-08, 0, -1.41995)
+mesh = SubResource("PlaneMesh_tayvf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Head/WaterShader" index="1"]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, -6.20682e-08, 0, -1.41995)
+visible = false
+mesh = SubResource("PlaneMesh_q1xck")
+
+[node name="SwordFish" parent="Head" index="4" instance=ExtResource("7_gtx0s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.689278, -1.12742, -0.672876)
+
+[node name="Health" type="Node" parent="." index="8" node_paths=PackedStringArray("entity")]
+script = ExtResource("2_3hsk1")
+entity = NodePath("..")
+
+[node name="HurtBox3D" type="Area3D" parent="." index="9" node_paths=PackedStringArray("health")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+script = ExtResource("3_iiwha")
+health = NodePath("../Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox3D" index="0"]
+shape = SubResource("CapsuleShape3D_83xuu")
+
+[node name="inGameUi" parent="." index="10" node_paths=PackedStringArray("HealthNode", "HurtBox") instance=ExtResource("5_8odno")]
+HealthNode = NodePath("../Health")
+HurtBox = NodePath("../HurtBox3D")
