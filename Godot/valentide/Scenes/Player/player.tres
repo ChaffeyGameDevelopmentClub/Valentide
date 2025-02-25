@@ -7,7 +7,6 @@ constant = Color(0.329412, 0.486275, 0.847059, 0.427451)
 constant = 50
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_ql3vv"]
-constant = 0.5
 
 [resource]
 code = "shader_type spatial;
@@ -22,7 +21,7 @@ void fragment() {
 
 
 // FloatConstant:4
-	float n_out4p0 = 0.500000;
+	float n_out4p0 = 0.000000;
 
 
 // Output:0
@@ -32,7 +31,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(189.551, 1.00464)
+graph_offset = Vector2(-1421.45, 1.00464)
 modes/diffuse = 1
 flags/ambient_light_disabled = true
 flags/vertex_lighting = true
