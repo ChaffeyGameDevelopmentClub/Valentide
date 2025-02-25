@@ -34,6 +34,7 @@ entity = NodePath("..")
 
 [node name="HitBox3D" type="Area3D" parent="."]
 script = ExtResource("1_0eqls")
+amount = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox3D"]
 shape = SubResource("BoxShape3D_owmr1")

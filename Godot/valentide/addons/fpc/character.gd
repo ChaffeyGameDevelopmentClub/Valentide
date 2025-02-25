@@ -150,7 +150,10 @@ var mouseInput : Vector2 = Vector2(0,0)
 func _ready():
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
+	#Add Console Commands
+	Console.add_command("healPlayer", healPlayer)
+	
 	# If the controller is rotated in a certain direction for game design purposes, redirect this rotation into the head.
 	HEAD.rotation.y = rotation.y
 	rotation.y = 0
@@ -179,6 +182,7 @@ func _physics_process(delta): # Most things happen here.
 
 	handle_jumping()
 	handle_attack()
+	handle_block()
 
 	var input_dir = Vector2.ZERO
 
@@ -247,8 +251,15 @@ func handle_movement(delta, input_dir):
 
 func handle_attack():
 	if Input.is_action_just_pressed(controls.ATTACK):
-		print(SWORD.get_children())
 		SWORD.swingAni()
+
+func handle_block():
+	if Input.is_action_just_pressed("block"):
+		SHIELD.raise()
+		$HurtBox3D.damage_multiplier = .5
+	if Input.is_action_just_released("block"):
+		SHIELD.lower()
+		$HurtBox3D.damage_multiplier = 1
 
 func handle_head_rotation():
 	if invert_camera_x_axis:
@@ -500,4 +511,7 @@ func handle_pausing():
 				#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 				##get_tree().paused = false
 				
+func healPlayer():
+	$Health.fill_health()
+
 #endregion

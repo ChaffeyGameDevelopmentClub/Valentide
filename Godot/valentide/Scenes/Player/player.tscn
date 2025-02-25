@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvmx1mbt7cv0a"]
+[gd_scene load_steps=14 format=3 uid="uid://cvmx1mbt7cv0a"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_mr0fw"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3hsk1"]
 [ext_resource type="Shader" path="res://Scenes/Player/water.gdshader" id="2_jg4ag"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/hurt_box_3d.gd" id="3_iiwha"]
 [ext_resource type="Shader" uid="uid://bndjuv2l8q5vw" path="res://Scenes/Player/player.tres" id="3_ne8rm"]
+[ext_resource type="PackedScene" uid="uid://brvtoqjafyvqw" path="res://Scenes/Player/turtle_shield.tscn" id="5_5j43m"]
 [ext_resource type="PackedScene" uid="uid://cjavdlycy4omk" path="res://Scenes/Player/in_game_ui.tscn" id="5_8odno"]
 [ext_resource type="PackedScene" uid="uid://ck4u3k5h5u3xo" path="res://Scenes/Player/sword_fish.tscn" id="7_gtx0s"]
 
@@ -31,8 +32,9 @@ subdivide_depth = 32
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_83xuu"]
 
-[node name="Player" node_paths=PackedStringArray("SWORD") instance=ExtResource("1_mr0fw")]
+[node name="Player" node_paths=PackedStringArray("SWORD", "SHIELD") instance=ExtResource("1_mr0fw")]
 SWORD = NodePath("Head/SwordFish")
+SHIELD = NodePath("Head/Turtle Shield")
 
 [node name="WaterShader" type="Node3D" parent="Head" index="3"]
 visible = false
@@ -48,6 +50,9 @@ mesh = SubResource("PlaneMesh_q1xck")
 
 [node name="SwordFish" parent="Head" index="4" instance=ExtResource("7_gtx0s")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.689278, -1.12742, -0.672876)
+
+[node name="Turtle Shield" parent="Head" index="5" instance=ExtResource("5_5j43m")]
+transform = Transform3D(0.282843, 0, 0.282843, 0, 0.4, 0, -0.282843, 0, 0.282843, -1.12, -0.624, -0.903)
 
 [node name="Health" type="Node" parent="." index="8" node_paths=PackedStringArray("entity")]
 script = ExtResource("2_3hsk1")
