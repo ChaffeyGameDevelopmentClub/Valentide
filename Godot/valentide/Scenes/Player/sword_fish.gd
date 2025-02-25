@@ -12,12 +12,16 @@ func _process(delta: float) -> void:
 	pass
 
 func swingAni():
-	print("enable")
+	#print("enable")
 	collision.disabled = false
-	print(collision.disabled)
+	#print(collision.disabled)
 	ani.play("swing")
-	ani.queue("idle")
-	if ani.get_current_animation() == "idle" :
-		print("disable")
-		collision.disabled = true
-		print(collision.disabled)
+	$SwingTimer.start()
+	
+	
+
+
+func _on_swing_timer_timeout() -> void:
+	#print("disable")
+	collision.disabled = true
+	#print(collision.disabled)

@@ -6,12 +6,14 @@ const JUMP_VELOCITY = 4.5
 
 @onready var health = $Health
 
+func _ready() -> void:
+	Console.add_command("eniHealth", printHealth)
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 	
-	if health.current > 10:
-		print(health.current)
+	
 	
 	move_and_slide()
+
+func printHealth():
+	print(health.current)
