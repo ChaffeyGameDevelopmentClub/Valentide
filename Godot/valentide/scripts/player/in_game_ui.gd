@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 #endregion
 
 #region Apply Health
-
 func updateHealth():
 	healthBox.amountLabel.text = str(HealthNode.current) + "%"
 	#HealthNode.current

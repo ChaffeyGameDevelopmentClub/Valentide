@@ -1,0 +1,121 @@
+[gd_scene load_steps=15 format=3 uid="uid://ck4u3k5h5u3xo"]
+
+[ext_resource type="Script" path="res://Scenes/Player/sword_fish.gd" id="1_xw0ii"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hit_box_3d/hit_box_3d.gd" id="2_a5mkp"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_auxig"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vnspg"]
+animation = &"swing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usq4o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l55b2"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sjg31"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_spyoo"]
+states/End/position = Vector2(763, 100)
+states/Start/position = Vector2(286, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_auxig")
+states/idle/position = Vector2(445, 100)
+states/swing/node = SubResource("AnimationNodeAnimation_vnspg")
+states/swing/position = Vector2(579, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_usq4o"), "idle", "swing", SubResource("AnimationNodeStateMachineTransition_l55b2"), "swing", "End", SubResource("AnimationNodeStateMachineTransition_sjg31")]
+graph_offset = Vector2(-177, -2)
+
+[sub_resource type="Animation" id="Animation_2xfhv"]
+resource_name = "swing"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.333333, 1, 0.324667, 0, 0, 0.5, 1, 0.325, 0, -0.25, 1, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.258819, 0.965926, 0.333333, 1, 0.38464, -0.200671, -0.416749, 0.798814, 0.5, 1, -0.153674, 0.581555, -0.584294, 0.544775, 1, 1, 0, 0, -0.258819, 0.965926)
+
+[sub_resource type="Animation" id="Animation_5lsc6"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599)]
+}
+
+[sub_resource type="Animation" id="Animation_2ggbj"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqean"]
+_data = {
+"RESET": SubResource("Animation_5lsc6"),
+"idle": SubResource("Animation_2ggbj"),
+"swing": SubResource("Animation_2xfhv")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qjohq"]
+radius = 0.25
+height = 2.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nyv6l"]
+radius = 0.25
+height = 1.5
+
+[node name="SwordFish" type="Node3D"]
+script = ExtResource("1_xw0ii")
+
+[node name="Animation" type="Node" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="Animation"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_spyoo")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qqean")
+}
+autoplay = "idle"
+
+[node name="Hand" type="Node3D" parent="."]
+transform = Transform3D(0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="HitBox3D" type="Area3D" parent="Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_a5mkp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hand/HitBox3D"]
+shape = SubResource("CapsuleShape3D_qjohq")
+disabled = true
+
+[node name="Mesh" type="Node3D" parent="Hand/HitBox3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hand/HitBox3D/Mesh"]
+mesh = SubResource("CapsuleMesh_nyv6l")
