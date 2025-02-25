@@ -3,9 +3,10 @@
 
 ### Role
 Luna - Programming and Project Lead 
-Person 2  
-[Person w/ Link]()  
-
+Tanvir - 3D Modeling and Ui
+Anna - Programming
+Linus - 2D Art
+Miguel - Moral Support
 
 ## Sourced / Unaffiliated
 ### Asset Type
