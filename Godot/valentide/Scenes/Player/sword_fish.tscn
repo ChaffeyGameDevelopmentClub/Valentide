@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://ck4u3k5h5u3xo"]
 
-[ext_resource type="Script" path="res://Scenes/Player/sword_fish.gd" id="1_xw0ii"]
+[ext_resource type="Script" path="res://scripts/player/sword_fish.gd" id="1_xw0ii"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hit_box_3d/hit_box_3d.gd" id="2_a5mkp"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_auxig"]

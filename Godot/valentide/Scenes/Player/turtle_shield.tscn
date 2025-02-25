@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://brvtoqjafyvqw"]
 
-[ext_resource type="Script" path="res://Scenes/Player/turtle_shield.gd" id="1_bp4hn"]
+[ext_resource type="Script" path="res://scripts/player/turtle_shield.gd" id="1_bp4hn"]
 [ext_resource type="ArrayMesh" uid="uid://dbs6rnyhvfmwn" path="res://Assets/Blender/Shell.tres" id="1_bx0ov"]
 
 [sub_resource type="Animation" id="Animation_rf8fa"]

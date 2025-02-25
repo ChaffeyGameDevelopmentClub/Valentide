@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://cauc6s3yamfew"]
+
+[ext_resource type="Script" path="res://Scenes/From addons/inventory_game.gd" id="1_ycb8w"]
+[ext_resource type="InventoryDatabase" uid="uid://00cd15eagpwm" path="res://Assets/gameDatabase.tres" id="2_v50qm"]
+[ext_resource type="PackedScene" uid="uid://bqnv3x0igblvs" path="res://addons/inventory-system-demos/fps/labels.tscn" id="3_b0a84"]
+[ext_resource type="PackedScene" uid="uid://da2b73383isem" path="res://addons/inventory-system-demos/ui/inventory_system_ui.tscn" id="4_nwjve"]
+[ext_resource type="Resource" uid="uid://vm1ta374rw08" path="res://addons/inventory-system-demos/base/kenney_input_icons.tres" id="5_o6q10"]
+
+[node name="InventoryGame" type="Node3D"]
+script = ExtResource("1_ycb8w")
+database = ExtResource("2_v50qm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Labels" parent="UI" instance=ExtResource("3_b0a84")]
+
+[node name="Inventory System UI" parent="UI" instance=ExtResource("4_nwjve")]
+
+[node name="InteractorUI" parent="UI/Inventory System UI" index="0"]
+input_icons = ExtResource("5_o6q10")
+
+[node name="StackPopupMenu" parent="UI/Inventory System UI" index="6"]
+auto_translate_mode = 1
+
+[editable path="UI/Inventory System UI"]
