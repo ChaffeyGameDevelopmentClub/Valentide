@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://Assets/textures/green.png" id="3_q4clv"]
 [ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://Assets/textures/orange.png" id="4_1ns5t"]
 [ext_resource type="PackedScene" uid="uid://b1te86m5u8npk" path="res://Scenes/Testing Stuff/enemy_Template.tscn" id="5_is8ly"]
-[ext_resource type="PackedScene" uid="uid://cauc6s3yamfew" path="res://Scenes/Player/inventory_game.tscn" id="6_r8r6o"]
+[ext_resource type="PackedScene" uid="uid://cauc6s3yamfew" path="res://Scenes/Player/Inventory/inventory_game.tscn" id="6_r8r6o"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_edcox"]
 ground_color = Color(0.160784, 0.815686, 0.905882, 1)
@@ -68,8 +68,6 @@ uv1_triplanar_sharpness = 0.000850145
 
 [node name="test_world" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_du4fw")]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_20rw3")
 
@@ -77,6 +75,8 @@ environment = SubResource("Environment_20rw3")
 transform = Transform3D(0.87959, -0.436605, 0.188936, 0, 0.397148, 0.917755, -0.475732, -0.807248, 0.349328, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_du4fw")]
 
 [node name="terrain" type="Node3D" parent="."]
 

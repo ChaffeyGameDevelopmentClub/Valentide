@@ -26,7 +26,7 @@ func _ready() -> void:
 	healthBox.amountLabel = $PanelContainer/MarginContainer/HBoxContainer/Health/VBoxContainer/AmountLabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	updateHealth()
 
 #endregion

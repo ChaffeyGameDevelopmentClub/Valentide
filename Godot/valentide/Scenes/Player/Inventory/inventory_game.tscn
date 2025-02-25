@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cauc6s3yamfew"]
+
+[ext_resource type="Script" path="res://Scenes/From addons/inventory_game.gd" id="1_ycb8w"]
+[ext_resource type="InventoryDatabase" uid="uid://00cd15eagpwm" path="res://Assets/gameDatabase.tres" id="2_v50qm"]
+[ext_resource type="PackedScene" uid="uid://bqnv3x0igblvs" path="res://addons/inventory-system-demos/fps/labels.tscn" id="3_b0a84"]
+[ext_resource type="PackedScene" uid="uid://vkjlh3707h3t" path="res://Scenes/Player/Inventory/inventory_system_ui.tscn" id="4_lky74"]
+
+[node name="InventoryGame" type="Node3D"]
+script = ExtResource("1_ycb8w")
+database = ExtResource("2_v50qm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Labels" parent="UI" instance=ExtResource("3_b0a84")]
+mouse_filter = 2
+
+[node name="Inventory System UI" parent="UI" instance=ExtResource("4_lky74")]
+mouse_filter = 1
+
+[editable path="UI/Inventory System UI"]

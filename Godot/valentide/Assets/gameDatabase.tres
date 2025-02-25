@@ -1,8 +1,34 @@
-[gd_resource type="InventoryDatabase" load_steps=2 format=3 uid="uid://00cd15eagpwm"]
+[gd_resource type="InventoryDatabase" load_steps=9 format=3 uid="uid://00cd15eagpwm"]
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_5qjdg"]
 id = "jelly"
-name = "Jelly"
+name = "Jelly Fish"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_g6rqp"]
+id = "healing"
+name = "Healing Jelly"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_0joqn"]
+id = "stone"
+name = "Stone"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_r4uku"]
+id = "kelp"
+name = "Kelp"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_ysjf5"]
+id = "wetstone"
+name = "Wet Stone"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_twvil"]
+id = "seapickle"
+name = "Sea Pickle"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_10fro"]
+id = "kelpSpellSpeed"
+name = "Speed Spell"
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_xdnm7"]
 
 [resource]
-items = Array[ItemDefinition]([SubResource("ItemDefinition_5qjdg")])
+items = Array[ItemDefinition]([SubResource("ItemDefinition_5qjdg"), SubResource("ItemDefinition_g6rqp"), SubResource("ItemDefinition_0joqn"), SubResource("ItemDefinition_r4uku"), SubResource("ItemDefinition_ysjf5"), SubResource("ItemDefinition_twvil"), SubResource("ItemDefinition_10fro"), SubResource("ItemDefinition_xdnm7")])

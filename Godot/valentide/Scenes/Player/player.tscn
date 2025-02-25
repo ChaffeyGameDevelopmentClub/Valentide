@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjavdlycy4omk" path="res://Scenes/Player/in_game_ui.tscn" id="5_8odno"]
 [ext_resource type="PackedScene" uid="uid://ck4u3k5h5u3xo" path="res://Scenes/Player/sword_fish.tscn" id="7_gtx0s"]
 [ext_resource type="PackedScene" uid="uid://cw4rwxc3dyovc" path="res://addons/inventory-system-demos/character/character_inventory_system.tscn" id="11_fsqim"]
-[ext_resource type="InventoryDatabase" uid="uid://de5qy8ycey7yn" path="res://addons/inventory-system-demos/database/database.tres" id="12_icy00"]
+[ext_resource type="InventoryDatabase" uid="uid://00cd15eagpwm" path="res://Assets/gameDatabase.tres" id="12_0i3lp"]
 [ext_resource type="Script" path="res://addons/inventory-system-demos/fps/use_items_example.gd" id="13_dsdil"]
 [ext_resource type="AudioStream" uid="uid://n8yvnoax543q" path="res://addons/inventory-system-demos/assets/kenney_rpgaudio/Audio/cloth4.ogg" id="14_3f4p3"]
 [ext_resource type="AudioStream" uid="uid://chgg2p17if5mo" path="res://addons/inventory-system-demos/assets/kenney_rpgaudio/Audio/dropLeather.ogg" id="15_iy37x"]
@@ -98,38 +98,18 @@ player = NodePath("..")
 HealthNode = NodePath("../Health")
 HurtBox = NodePath("../HurtBox3D")
 
-[node name="CharacterInventorySystem" parent="." index="11" node_paths=PackedStringArray("raycast", "camera_3d") instance=ExtResource("11_fsqim")]
-database = ExtResource("12_icy00")
-raycast = NodePath("../Head/Camera/RayCast3D")
-camera_3d = NodePath("../Head/Camera")
-
-[node name="Inventory" parent="CharacterInventorySystem" index="0"]
-size = Vector2i(5, 8)
-database = ExtResource("12_icy00")
-
-[node name="EquipmentInventory" parent="CharacterInventorySystem" index="1"]
-database = ExtResource("12_icy00")
-
-[node name="Interactor" parent="CharacterInventorySystem" index="3" node_paths=PackedStringArray("raycast", "camera")]
-database = ExtResource("12_icy00")
-node_base_to_interactions = NodePath("../..")
-raycast = NodePath("../../Head/Camera/RayCast3D")
-camera = NodePath("../../Head/Camera")
-
-[node name="ObjectPlacer" parent="CharacterInventorySystem/Interactor" index="0"]
-database = ExtResource("12_icy00")
-
-[node name="UseItemsExample" type="Node3D" parent="." index="12" node_paths=PackedStringArray("hotbar")]
+[node name="UseItemsExample" type="Node3D" parent="." index="11" node_paths=PackedStringArray("hotbar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 script = ExtResource("13_dsdil")
 hotbar = NodePath("../CharacterInventorySystem/Hotbar")
 
-[node name="Dropper" type="Node3D" parent="." index="13" node_paths=PackedStringArray("inventories")]
+[node name="Dropper" type="Node3D" parent="." index="12" node_paths=PackedStringArray("inventories")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
 script = ExtResource("19_qc8va")
 inventories = [NodePath("../CharacterInventorySystem/Inventory")]
 
-[node name="Audio" type="Node3D" parent="." index="14"]
+[node name="Audio" type="Node3D" parent="." index="13"]
 
 [node name="PickupAudio" type="AudioStreamPlayer3D" parent="Audio" index="0"]
 stream = ExtResource("14_3f4p3")
@@ -150,5 +130,28 @@ volume_db = -30.0
 [node name="PlayerInventoryCloseAudio" type="AudioStreamPlayer3D" parent="Audio" index="4"]
 stream = ExtResource("18_wh7fp")
 volume_db = -30.0
+
+[node name="CharacterInventorySystem" parent="." index="14" node_paths=PackedStringArray("raycast", "camera_3d") instance=ExtResource("11_fsqim")]
+database = ExtResource("12_0i3lp")
+raycast = NodePath("../Head/Camera/RayCast3D")
+camera_3d = NodePath("../Head/Camera")
+
+[node name="Inventory" parent="CharacterInventorySystem" index="0"]
+size = Vector2i(5, 7)
+database = ExtResource("12_0i3lp")
+
+[node name="EquipmentInventory" parent="CharacterInventorySystem" index="1"]
+database = ExtResource("12_0i3lp")
+
+[node name="Interactor" parent="CharacterInventorySystem" index="3" node_paths=PackedStringArray("raycast", "camera")]
+database = ExtResource("12_0i3lp")
+raycast = NodePath("../../Head/Camera/RayCast3D")
+camera = NodePath("../../Head/Camera")
+
+[node name="ObjectPlacer" parent="CharacterInventorySystem/Interactor" index="0"]
+database = ExtResource("12_0i3lp")
+
+[node name="Hotbar" parent="CharacterInventorySystem" index="4"]
+database = ExtResource("12_0i3lp")
 
 [editable path="CharacterInventorySystem"]
