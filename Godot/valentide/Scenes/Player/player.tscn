@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cvmx1mbt7cv0a"]
+[gd_scene load_steps=28 format=3 uid="uid://cvmx1mbt7cv0a"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://addons/fpc/character.tscn" id="1_mr0fw"]
 [ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="2_3hsk1"]
@@ -9,8 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://brvtoqjafyvqw" path="res://Scenes/Player/turtle_shield.tscn" id="5_5j43m"]
 [ext_resource type="PackedScene" uid="uid://cjavdlycy4omk" path="res://Scenes/Player/in_game_ui.tscn" id="5_8odno"]
 [ext_resource type="PackedScene" uid="uid://ck4u3k5h5u3xo" path="res://Scenes/Player/sword_fish.tscn" id="7_gtx0s"]
+[ext_resource type="PackedScene" uid="uid://bqnv3x0igblvs" path="res://addons/inventory-system-demos/fps/labels.tscn" id="10_hgvbl"]
 [ext_resource type="PackedScene" uid="uid://cw4rwxc3dyovc" path="res://addons/inventory-system-demos/character/character_inventory_system.tscn" id="11_fsqim"]
+[ext_resource type="PackedScene" uid="uid://da2b73383isem" path="res://addons/inventory-system-demos/ui/inventory_system_ui.tscn" id="11_iieij"]
 [ext_resource type="InventoryDatabase" uid="uid://de5qy8ycey7yn" path="res://addons/inventory-system-demos/database/database.tres" id="12_icy00"]
+[ext_resource type="Resource" uid="uid://vm1ta374rw08" path="res://addons/inventory-system-demos/base/kenney_input_icons.tres" id="12_sid7t"]
 [ext_resource type="Script" path="res://addons/inventory-system-demos/fps/use_items_example.gd" id="13_dsdil"]
 [ext_resource type="AudioStream" uid="uid://n8yvnoax543q" path="res://addons/inventory-system-demos/assets/kenney_rpgaudio/Audio/cloth4.ogg" id="14_3f4p3"]
 [ext_resource type="AudioStream" uid="uid://chgg2p17if5mo" path="res://addons/inventory-system-demos/assets/kenney_rpgaudio/Audio/dropLeather.ogg" id="15_iy37x"]
@@ -123,29 +126,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 script = ExtResource("13_dsdil")
 hotbar = NodePath("../CharacterInventorySystem/Hotbar")
 
-[node name="PickupAudio" type="AudioStreamPlayer3D" parent="." index="13"]
-stream = ExtResource("14_3f4p3")
-volume_db = -30.0
-
-[node name="DropAudio" type="AudioStreamPlayer3D" parent="." index="14"]
-stream = ExtResource("15_iy37x")
-volume_db = -30.0
-
-[node name="HotbarChangeAudio" type="AudioStreamPlayer3D" parent="." index="15"]
-stream = ExtResource("16_cgthg")
-volume_db = -30.0
-
-[node name="PlayerInventoryOpenAudio" type="AudioStreamPlayer3D" parent="." index="16"]
-stream = ExtResource("17_eymoh")
-volume_db = -30.0
-
-[node name="PlayerInventoryCloseAudio" type="AudioStreamPlayer3D" parent="." index="17"]
-stream = ExtResource("18_wh7fp")
-volume_db = -30.0
-
-[node name="Dropper" type="Node3D" parent="." index="18" node_paths=PackedStringArray("inventories")]
+[node name="Dropper" type="Node3D" parent="." index="13" node_paths=PackedStringArray("inventories")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
 script = ExtResource("19_qc8va")
 inventories = [NodePath("../CharacterInventorySystem/Inventory")]
 
+[node name="UI" type="CanvasLayer" parent="." index="14"]
+
+[node name="Labels" parent="UI" index="0" instance=ExtResource("10_hgvbl")]
+
+[node name="Inventory System UI" parent="UI" index="1" instance=ExtResource("11_iieij")]
+
+[node name="InteractorUI" parent="UI/Inventory System UI" index="0"]
+input_icons = ExtResource("12_sid7t")
+
+[node name="StackPopupMenu" parent="UI/Inventory System UI" index="6"]
+auto_translate_mode = 1
+
+[node name="Audio" type="Node3D" parent="." index="15"]
+
+[node name="PickupAudio" type="AudioStreamPlayer3D" parent="Audio" index="0"]
+stream = ExtResource("14_3f4p3")
+volume_db = -30.0
+
+[node name="DropAudio" type="AudioStreamPlayer3D" parent="Audio" index="1"]
+stream = ExtResource("15_iy37x")
+volume_db = -30.0
+
+[node name="HotbarChangeAudio" type="AudioStreamPlayer3D" parent="Audio" index="2"]
+stream = ExtResource("16_cgthg")
+volume_db = -30.0
+
+[node name="PlayerInventoryOpenAudio" type="AudioStreamPlayer3D" parent="Audio" index="3"]
+stream = ExtResource("17_eymoh")
+volume_db = -30.0
+
+[node name="PlayerInventoryCloseAudio" type="AudioStreamPlayer3D" parent="Audio" index="4"]
+stream = ExtResource("18_wh7fp")
+volume_db = -30.0
+
 [editable path="CharacterInventorySystem"]
+[editable path="UI/Inventory System UI"]
