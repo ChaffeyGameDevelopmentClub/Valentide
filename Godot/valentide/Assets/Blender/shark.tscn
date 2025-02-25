@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c65tmi5opab41"]
+
+[ext_resource type="PackedScene" uid="uid://btdbpslk564m3" path="res://Assets/Blender/Shark.glb" id="1_7m60b"]
+[ext_resource type="ArrayMesh" uid="uid://cv16m2t34rksr" path="res://Assets/Blender/Shark.tres" id="2_37n8m"]
+
+[node name="Shark" instance=ExtResource("1_7m60b")]
+
+[node name="Cube" parent="." index="0"]
+mesh = ExtResource("2_37n8m")
