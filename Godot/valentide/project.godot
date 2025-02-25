@@ -22,10 +22,11 @@ SceneLoader="*res://addons/maaacks_menus_template/base/scenes/autoloads/scene_lo
 ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 Console="*res://addons/console/console.gd"
+Save="*res://addons/easy_saving/autoload.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/health_hitbox_hurtbox/plugin.cfg", "res://addons/inventory-system/plugin.cfg", "res://addons/maaacks_menus_template/plugin.cfg", "res://addons/procedural_textures/plugin.cfg")
+enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/easy_saving/plugin.cfg", "res://addons/health_hitbox_hurtbox/plugin.cfg", "res://addons/inventory-system/plugin.cfg", "res://addons/maaacks_menus_template/plugin.cfg", "res://addons/procedural_textures/plugin.cfg")
 
 [file_customization]
 
