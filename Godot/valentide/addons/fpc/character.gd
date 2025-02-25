@@ -65,7 +65,7 @@ extends CharacterBody3D
 	LEFT = "left",
 	RIGHT = "right",
 	FORWARD = "forward",
-	BACKWARD = "back",
+	BACKWARD = "backward",
 	JUMP = "jump",
 	CROUCH = "crouch",
 	SPRINT = "sprint",
