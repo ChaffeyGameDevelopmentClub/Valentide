@@ -6,7 +6,6 @@ extends Control
 @export var player : CharacterBody3D
 @export var HealthNode : Health
 @export var HurtBox : HurtBox3D
-@export var HitBox : HitBox3D
 
 #endregion
 

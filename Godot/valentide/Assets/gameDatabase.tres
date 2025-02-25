@@ -1,0 +1,8 @@
+[gd_resource type="InventoryDatabase" load_steps=2 format=3 uid="uid://00cd15eagpwm"]
+
+[sub_resource type="ItemDefinition" id="ItemDefinition_5qjdg"]
+id = "jelly"
+name = "Jelly"
+
+[resource]
+items = Array[ItemDefinition]([SubResource("ItemDefinition_5qjdg")])
