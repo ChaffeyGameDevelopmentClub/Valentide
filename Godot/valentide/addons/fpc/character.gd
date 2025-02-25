@@ -141,6 +141,11 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 # Stores mouse input for rotating the camera in the physics process
 var mouseInput : Vector2 = Vector2(0,0)
 
+# Inventory Stuff
+#@onready var character_inventory_system : CharacterInventorySystem = $CharacterInventorySystem
+#@onready var raycast : RayCast3D = $Camera3D/RayCast3D
+#@onready var camera_3d : Camera3D = $Camera3D
+
 #endregion
 
 

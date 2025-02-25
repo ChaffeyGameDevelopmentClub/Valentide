@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://5pwqct57gr3c"]
+[gd_scene load_steps=19 format=3 uid="uid://5pwqct57gr3c"]
 
 [ext_resource type="PackedScene" uid="uid://cvmx1mbt7cv0a" path="res://Scenes/Player/player.tscn" id="1_du4fw"]
 [ext_resource type="Texture2D" uid="uid://pe7a4weirj2g" path="res://Assets/textures/dark.png" id="2_08fdt"]
 [ext_resource type="Texture2D" uid="uid://cxjxvqmf4boxq" path="res://Assets/textures/green.png" id="3_q4clv"]
 [ext_resource type="Texture2D" uid="uid://dsv4jm4vydflb" path="res://Assets/textures/orange.png" id="4_1ns5t"]
 [ext_resource type="PackedScene" uid="uid://b1te86m5u8npk" path="res://Scenes/Testing Stuff/enemy_Template.tscn" id="5_is8ly"]
+[ext_resource type="PackedScene" uid="uid://bqnv3x0igblvs" path="res://addons/inventory-system-demos/fps/labels.tscn" id="6_hhjn1"]
+[ext_resource type="PackedScene" uid="uid://da2b73383isem" path="res://addons/inventory-system-demos/ui/inventory_system_ui.tscn" id="7_ttotk"]
+[ext_resource type="Resource" uid="uid://vm1ta374rw08" path="res://addons/inventory-system-demos/base/kenney_input_icons.tres" id="8_a11sv"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_edcox"]
 ground_color = Color(0.160784, 0.815686, 0.905882, 1)
@@ -111,3 +114,17 @@ material = SubResource("StandardMaterial3D_7j4uu")
 
 [node name="EnemyTest" parent="." instance=ExtResource("5_is8ly")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39576, 0.5, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Labels" parent="UI" instance=ExtResource("6_hhjn1")]
+
+[node name="Inventory System UI" parent="UI" instance=ExtResource("7_ttotk")]
+
+[node name="InteractorUI" parent="UI/Inventory System UI" index="0"]
+input_icons = ExtResource("8_a11sv")
+
+[node name="StackPopupMenu" parent="UI/Inventory System UI" index="6"]
+auto_translate_mode = 1
+
+[editable path="UI/Inventory System UI"]
