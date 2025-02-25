@@ -8,7 +8,7 @@ extends Node
 
 func _unhandled_input(event):
 	if event.is_action_pressed("esc"):
-		print_debug("mouse vis")
+		#print_debug("mouse vis")
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		#From game template, adds pausemenu when esc is pressed
 		if not focused_viewport:
