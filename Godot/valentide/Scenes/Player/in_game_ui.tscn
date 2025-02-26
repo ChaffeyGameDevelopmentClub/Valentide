@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjavdlycy4omk"]
+[gd_scene load_steps=9 format=3 uid="uid://cjavdlycy4omk"]
 
 [ext_resource type="Script" path="res://scripts/player/in_game_ui.gd" id="1_l02s3"]
 [ext_resource type="Theme" uid="uid://1p2xhufjmeke" path="res://Assets/Themes/GameUi/LargeFont.tres" id="2_33koo"]
 [ext_resource type="Theme" uid="uid://csr2i2kvawbxf" path="res://Assets/Themes/GameUi/SmallFont.tres" id="3_7tphr"]
+[ext_resource type="Texture2D" uid="uid://cnovwmlr1lhru" path="res://Assets/textures/Background.png" id="4_i7j27"]
+[ext_resource type="Texture2D" uid="uid://dhp3b46i4m5nc" path="res://Assets/textures/HealthBar.png" id="5_8j8tb"]
+[ext_resource type="Texture2D" uid="uid://bwa3qfs32vymg" path="res://Assets/textures/StaminaBar.png" id="6_tvq7b"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0edd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x27iw"]
 
 [node name="inGameUi" type="Control"]
 layout_mode = 3
@@ -22,17 +27,20 @@ script = ExtResource("1_l02s3")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1408.0
+offset_bottom = 792.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.45, 0.45)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_f0edd")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/margin_top = 500
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 alignment = 1
@@ -59,3 +67,38 @@ layout_mode = 2
 theme = ExtResource("3_7tphr")
 text = "Health"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_i7j27")
+stretch_mode = 2
+
+[node name="Health Bar" type="PanelContainer" parent="CanvasLayer"]
+scale = Vector2(0.39, 0.39)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x27iw")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Health Bar"]
+layout_mode = 2
+theme_override_constants/margin_left = 314
+theme_override_constants/margin_top = 99
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Health Bar/MarginContainer"]
+layout_mode = 2
+value = 100.0
+texture_progress = ExtResource("5_8j8tb")
+
+[node name="Stamina" type="PanelContainer" parent="CanvasLayer"]
+scale = Vector2(0.38, 0.38)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x27iw")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Stamina"]
+layout_mode = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 186
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Stamina/MarginContainer"]
+layout_mode = 2
+value = 100.0
+texture_progress = ExtResource("6_tvq7b")

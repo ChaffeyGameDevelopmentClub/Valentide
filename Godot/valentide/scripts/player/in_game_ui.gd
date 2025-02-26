@@ -12,10 +12,11 @@ extends Control
 #region Vars 
 
 class Box extends Node:
-	var amountLabel : Label
+	var amountLabel : TextureProgressBar
 	var boxName : Label
 
 var healthBox = Box.new()
+var staminaBox = Box.new()
 
 #endregion
 
@@ -23,7 +24,7 @@ var healthBox = Box.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#init health box
-	healthBox.amountLabel = $CanvasLayer/PanelContainer/MarginContainer/HBoxContainer/Health/VBoxContainer/AmountLabel
+	healthBox.amountLabel = $"CanvasLayer/Health Bar/MarginContainer/TextureProgressBar"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -33,7 +34,7 @@ func _process(_delta: float) -> void:
 
 #region Apply Health
 func updateHealth():
-	healthBox.amountLabel.text = str(HealthNode.current) + "%"
+	healthBox.amountLabel.value = HealthNode.current
 	#HealthNode.current
 	pass
 
