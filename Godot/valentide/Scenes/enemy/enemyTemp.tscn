@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://crwvvd1v7by3i"]
+
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/health/health.gd" id="1_6biga"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hit_box_3d/hit_box_3d.gd" id="2_t3hml"]
+[ext_resource type="Script" path="res://addons/health_hitbox_hurtbox/3d/hurt_box_3d/hurt_box_3d.gd" id="3_dddnx"]
+
+[node name="EnemyTemp" type="Node3D"]
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("1_6biga")
+current = 10
+max = 10
+entity = NodePath("")
+
+[node name="HitBox3D" type="Area3D" parent="."]
+script = ExtResource("2_t3hml")
+
+[node name="HurtBox3D" type="Area3D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_dddnx")
+health = NodePath("../Health")
