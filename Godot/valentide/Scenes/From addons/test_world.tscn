@@ -114,6 +114,7 @@ material = SubResource("StandardMaterial3D_7j4uu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.39576, 0.5, 0)
 
 [node name="InventoryGame" parent="." instance=ExtResource("6_r8r6o")]
+visible = false
 
 [editable path="Player"]
 [editable path="Player/CharacterInventorySystem"]
