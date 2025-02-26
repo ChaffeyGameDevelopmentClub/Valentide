@@ -15,6 +15,9 @@ database = ExtResource("2_v50qm")
 mouse_filter = 2
 
 [node name="Inventory System UI" parent="UI" instance=ExtResource("4_lky74")]
+mouse_filter = 2
+
+[node name="DropArea" parent="UI/Inventory System UI" index="1"]
 mouse_filter = 1
 
 [editable path="UI/Inventory System UI"]

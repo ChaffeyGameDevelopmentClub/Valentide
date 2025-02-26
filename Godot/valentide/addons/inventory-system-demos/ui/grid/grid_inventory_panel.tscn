@@ -22,6 +22,7 @@ offset_right = 250.0
 offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_gc205")
 grid_inventory_ui = NodePath("VBoxContainer/MarginContainer/GridInventoryUI")
 title_label = NodePath("VBoxContainer/Panel/Title/HBoxContainer/TitleLabel")
@@ -32,6 +33,7 @@ layout_mode = 2
 [node name="Panel" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+mouse_filter = 1
 
 [node name="Title" type="MarginContainer" parent="VBoxContainer/Panel"]
 layout_mode = 1

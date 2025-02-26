@@ -1,34 +1,134 @@
-[gd_resource type="InventoryDatabase" load_steps=9 format=3 uid="uid://00cd15eagpwm"]
+[gd_resource type="InventoryDatabase" load_steps=31 format=3 uid="uid://00cd15eagpwm"]
+
+[sub_resource type="ItemCategory" id="ItemCategory_j5vaa"]
+id = "base"
+name = "Resource"
+
+[sub_resource type="ItemCategory" id="ItemCategory_v4oem"]
+id = "healing"
+name = "Healing"
+
+[sub_resource type="ItemCategory" id="ItemCategory_uwasf"]
+id = "spell"
+name = "Spell"
+
+[sub_resource type="ItemCategory" id="ItemCategory_k6pde"]
+id = "upgradeItem"
+name = "Upgrade Item"
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_5qjdg"]
 id = "jelly"
 name = "Jelly Fish"
+categories = Array[ItemCategory]([SubResource("ItemCategory_j5vaa")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_g6rqp"]
 id = "healing"
 name = "Healing Jelly"
+categories = Array[ItemCategory]([SubResource("ItemCategory_v4oem")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_0joqn"]
 id = "stone"
 name = "Stone"
+categories = Array[ItemCategory]([SubResource("ItemCategory_j5vaa")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_r4uku"]
 id = "kelp"
 name = "Kelp"
+categories = Array[ItemCategory]([SubResource("ItemCategory_j5vaa")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_ysjf5"]
 id = "wetstone"
 name = "Wet Stone"
+categories = Array[ItemCategory]([SubResource("ItemCategory_k6pde")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_twvil"]
 id = "seapickle"
 name = "Sea Pickle"
+categories = Array[ItemCategory]([SubResource("ItemCategory_j5vaa")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_10fro"]
 id = "kelpSpellSpeed"
 name = "Speed Spell"
+categories = Array[ItemCategory]([SubResource("ItemCategory_uwasf")])
 
 [sub_resource type="ItemDefinition" id="ItemDefinition_xdnm7"]
+id = "kelpSpellRage"
+name = "Rage Spell"
+categories = Array[ItemCategory]([SubResource("ItemCategory_uwasf")])
+
+[sub_resource type="ItemStack" id="ItemStack_rtluf"]
+item_id = "stone"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_b2tm2"]
+item_id = "jelly"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_a0syr"]
+item_id = "healing"
+amount = 1
+
+[sub_resource type="Recipe" id="Recipe_pttia"]
+products = Array[ItemStack]([SubResource("ItemStack_a0syr")])
+ingredients = Array[ItemStack]([SubResource("ItemStack_rtluf"), SubResource("ItemStack_b2tm2")])
+
+[sub_resource type="ItemStack" id="ItemStack_0dwmb"]
+item_id = "stone"
+amount = 5
+
+[sub_resource type="ItemStack" id="ItemStack_h10do"]
+item_id = "kelp"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_x68dg"]
+item_id = "wetstone"
+amount = 1
+
+[sub_resource type="Recipe" id="Recipe_1wyjn"]
+products = Array[ItemStack]([SubResource("ItemStack_x68dg")])
+ingredients = Array[ItemStack]([SubResource("ItemStack_0dwmb"), SubResource("ItemStack_h10do")])
+
+[sub_resource type="ItemStack" id="ItemStack_a4imv"]
+item_id = "kelp"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_f6hqu"]
+item_id = "seapickle"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_s2oem"]
+item_id = "jelly"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_1s5or"]
+item_id = "kelpSpellSpeed"
+amount = 1
+
+[sub_resource type="Recipe" id="Recipe_cdtrm"]
+products = Array[ItemStack]([SubResource("ItemStack_1s5or")])
+ingredients = Array[ItemStack]([SubResource("ItemStack_a4imv"), SubResource("ItemStack_f6hqu"), SubResource("ItemStack_s2oem")])
+
+[sub_resource type="ItemStack" id="ItemStack_6eux6"]
+item_id = "kelp"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_x4ewy"]
+item_id = "seapickle"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_p1mgi"]
+item_id = "stone"
+amount = 1
+
+[sub_resource type="ItemStack" id="ItemStack_xc7lp"]
+item_id = "kelpSpellRage"
+amount = 1
+
+[sub_resource type="Recipe" id="Recipe_oowwj"]
+products = Array[ItemStack]([SubResource("ItemStack_xc7lp")])
+ingredients = Array[ItemStack]([SubResource("ItemStack_6eux6"), SubResource("ItemStack_x4ewy"), SubResource("ItemStack_p1mgi")])
 
 [resource]
 items = Array[ItemDefinition]([SubResource("ItemDefinition_5qjdg"), SubResource("ItemDefinition_g6rqp"), SubResource("ItemDefinition_0joqn"), SubResource("ItemDefinition_r4uku"), SubResource("ItemDefinition_ysjf5"), SubResource("ItemDefinition_twvil"), SubResource("ItemDefinition_10fro"), SubResource("ItemDefinition_xdnm7")])
+recipes = Array[Recipe]([SubResource("Recipe_pttia"), SubResource("Recipe_1wyjn"), SubResource("Recipe_cdtrm"), SubResource("Recipe_oowwj")])
+item_categories = Array[ItemCategory]([SubResource("ItemCategory_j5vaa"), SubResource("ItemCategory_v4oem"), SubResource("ItemCategory_uwasf"), SubResource("ItemCategory_k6pde")])

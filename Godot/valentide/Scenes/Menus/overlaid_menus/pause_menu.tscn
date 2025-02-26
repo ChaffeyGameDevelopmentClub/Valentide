@@ -5,5 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cwea48dawxk7q" path="res://Scenes/Menus/overlaid_menus/mini_options_overlaid_menu.tscn" id="3_1c06f"]
 
 [node name="PauseMenu" instance=ExtResource("1_rtyyg")]
+top_level = true
+z_index = 2
 script = ExtResource("2_3fiww")
 options_packed_scene = ExtResource("3_1c06f")
