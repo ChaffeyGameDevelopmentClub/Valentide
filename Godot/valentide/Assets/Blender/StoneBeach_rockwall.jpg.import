@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4rb7vlcgtukw"
-path.s3tc="res://.godot/imported/StoneBeach_rockwall.jpg-3f7bcb0130dac12787cc12443751bebc.s3tc.ctex"
+path.s3tc="res://.godot/imported/StoneBeach_rockwall.jpg-3581b510d27da413fcd4bfc6cf08b984.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/mapTilesAssets/StoneBeach_rockwall.jpg"
-dest_files=["res://.godot/imported/StoneBeach_rockwall.jpg-3f7bcb0130dac12787cc12443751bebc.s3tc.ctex"]
+source_file="res://Assets/Blender/StoneBeach_rockwall.jpg"
+dest_files=["res://.godot/imported/StoneBeach_rockwall.jpg-3581b510d27da413fcd4bfc6cf08b984.s3tc.ctex"]
 
 [params]
 

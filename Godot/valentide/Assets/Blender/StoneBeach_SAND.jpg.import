@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cw27r2kfm0n70"
-path.s3tc="res://.godot/imported/StoneBeach_SAND.jpg-0d082042edb366af830dd33151c8690b.s3tc.ctex"
+path.s3tc="res://.godot/imported/StoneBeach_SAND.jpg-14f22f3c130677b9fdaa0795a2b1e631.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/mapTilesAssets/StoneBeach_SAND.jpg"
-dest_files=["res://.godot/imported/StoneBeach_SAND.jpg-0d082042edb366af830dd33151c8690b.s3tc.ctex"]
+source_file="res://Assets/Blender/StoneBeach_SAND.jpg"
+dest_files=["res://.godot/imported/StoneBeach_SAND.jpg-14f22f3c130677b9fdaa0795a2b1e631.s3tc.ctex"]
 
 [params]
 

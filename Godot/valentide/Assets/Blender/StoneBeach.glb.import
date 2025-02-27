@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b61ijpqjegnnw"
-path="res://.godot/imported/StoneBeach.glb-fc617849c8be808ca45328f5127fb734.scn"
+path="res://.godot/imported/StoneBeach.glb-778d51d3ee3e9994ba49545fe4878825.scn"
 
 [deps]
 
-source_file="res://Assets/mapTilesAssets/StoneBeach.glb"
-dest_files=["res://.godot/imported/StoneBeach.glb-fc617849c8be808ca45328f5127fb734.scn"]
+source_file="res://Assets/Blender/StoneBeach.glb"
+dest_files=["res://.godot/imported/StoneBeach.glb-778d51d3ee3e9994ba49545fe4878825.scn"]
 
 [params]
 

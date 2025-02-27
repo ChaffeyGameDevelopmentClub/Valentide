@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://j47voysm3mcv"
-path.s3tc="res://.godot/imported/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg-47be5c7f54af2353be5e744eed88c2fa.s3tc.ctex"
+path.s3tc="res://.godot/imported/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg-fdde2f4dc5f0efe56210c27d34daf7c1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/mapTilesAssets/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg"
-dest_files=["res://.godot/imported/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg-47be5c7f54af2353be5e744eed88c2fa.s3tc.ctex"]
+source_file="res://Assets/Blender/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg"
+dest_files=["res://.godot/imported/StoneBeach_carpet-texture-3628-x-3628-picture-srtvp454q7mqywzx.jpg-fdde2f4dc5f0efe56210c27d34daf7c1.s3tc.ctex"]
 
 [params]
 
