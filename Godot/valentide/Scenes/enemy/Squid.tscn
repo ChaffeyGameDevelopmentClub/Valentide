@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://hyp2vfjthmt"]
+
+[ext_resource type="Script" path="res://Scenes/enemy/squid.gd" id="1_4iwoq"]
+[ext_resource type="PackedScene" uid="uid://crwvvd1v7by3i" path="res://Scenes/enemy/enemyTemp.tscn" id="1_hlnef"]
+[ext_resource type="PackedScene" uid="uid://be1neh76tqgcb" path="res://Assets/Blender/squid.tscn" id="2_wdbrr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hrf70"]
+radius = 1.25107
+height = 8.72774
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y5vdj"]
+height = 1.97314
+radius = 3.48745
+
+[node name="Squid" type="CharacterBody3D"]
+script = ExtResource("1_4iwoq")
+
+[node name="EnemyTemp" parent="." instance=ExtResource("1_hlnef")]
+
+[node name="Health" parent="EnemyTemp" index="0" node_paths=PackedStringArray("entity")]
+entity = NodePath("..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="EnemyTemp/HitBox3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016571, 0.3514, 0.0440674)
+shape = SubResource("CapsuleShape3D_hrf70")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="EnemyTemp/HitBox3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0736337, -2.02703, 0.00366211)
+shape = SubResource("CylinderShape3D_y5vdj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="EnemyTemp/HurtBox3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016571, 0.3514, 0.0440674)
+shape = SubResource("CapsuleShape3D_hrf70")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="EnemyTemp/HurtBox3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0736337, -2.02703, 0.00366211)
+shape = SubResource("CylinderShape3D_y5vdj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016571, 0.3514, 0.0440674)
+shape = SubResource("CapsuleShape3D_hrf70")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0736337, -2.02703, 0.00366211)
+shape = SubResource("CylinderShape3D_y5vdj")
+
+[node name="squid" parent="." instance=ExtResource("2_wdbrr")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[editable path="EnemyTemp"]
