@@ -503,9 +503,9 @@ func update_camera_fov():
 
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
-		print_debug("mouse cap")
+		#print_debug("mouse cap")
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		print_debug("player pause")
+		#print_debug("player pause")
 		# You may want another node to handle pausing, because this player may get paused too.
 		# Moved to PauseMenuController
 		#match Input.mouse_mode:
