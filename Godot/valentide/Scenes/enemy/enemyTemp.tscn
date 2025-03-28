@@ -10,7 +10,7 @@
 script = ExtResource("1_6biga")
 current = 10
 max = 10
-entity = NodePath("")
+entity = NodePath("..")
 
 [node name="HitBox3D" type="Area3D" parent="."]
 script = ExtResource("2_t3hml")

@@ -9,7 +9,7 @@ const JUMP_VELOCITY = 4.5
 func _ready() -> void:
 	Console.add_command("eniHealth", printHealth)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	
 	
